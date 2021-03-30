@@ -16,10 +16,8 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @Slf4j
-
 public class HeroesController {
   HeroesService heroesService;
-
   HeroesRepository heroesRepository;
 
   private static final org.slf4j.Logger log =
@@ -35,9 +33,7 @@ public class HeroesController {
   public Flux<Heroes> getAllItems() {
     log.info("requesting the list off all heroes");
     return heroesService.findAll();
-
   }
-
 
   @GetMapping(HEROES_ENDPOINT_LOCAL + "/{id}")
   public Mono<ResponseEntity<Heroes>> findByIdHero(@PathVariable String id) {
@@ -52,7 +48,6 @@ public class HeroesController {
   public Mono<Heroes> createHero(@RequestBody Heroes heroes) {
     log.info("A new Hero was Created");
     return heroesService.save(heroes);
-
   }
 
   @DeleteMapping(HEROES_ENDPOINT_LOCAL + "/{id}")

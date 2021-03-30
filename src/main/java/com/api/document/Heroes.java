@@ -9,11 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-
 @NoArgsConstructor
 @DynamoDBTable(tableName ="Heroes_Api_Table")
-
-
 public class Heroes {
   public String getId() {
     return id;
@@ -60,7 +57,6 @@ public class Heroes {
   @DynamoDBAttribute (attributeName = "films")
   private int films;
 
-
   public Heroes(String id, String name, String universe, int films) {
     this.id = id;
     this.name = name;
@@ -69,4 +65,3 @@ public class Heroes {
   }
 
 }
-

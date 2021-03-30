@@ -33,7 +33,6 @@ public class HeroesApiApplicationTests {
   @Autowired
   HeroesRepository heroesRepository;
 
-
   @Test
   public void getOneHeroeById(){
 
@@ -41,31 +40,22 @@ public class HeroesApiApplicationTests {
       .exchange()
       .expectStatus().isOk()
       .expectBody();
-
-
   }
 
   @Test
   public void getOneHeronotFound(){
-
     webTestClient.get().uri(HEROES_ENDPOINT_LOCAL.concat("/{id}"),"10")
       .exchange()
       .expectStatus().isNotFound();
-
   }
-
 
   @Test
   public void deleteHero(){
-
     webTestClient.delete().uri(HEROES_ENDPOINT_LOCAL.concat("/{id}"),"1")
       .accept(MediaType.APPLICATION_JSON)
       .exchange()
       .expectStatus().isNotFound()
       .expectBody(Void.class);
-
   }
 
 }
-
-
