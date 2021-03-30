@@ -20,8 +20,8 @@ public class HeroesController {
   HeroesService heroesService;
   HeroesRepository heroesRepository;
 
-  private static final org.slf4j.Logger log =
-    org.slf4j.LoggerFactory.getLogger(HeroesController.class);
+//  private static final org.slf4j.Logger log =
+//    org.slf4j.LoggerFactory.getLogger(HeroesController.class);
 
   public HeroesController(HeroesService heroesService, HeroesRepository heroesRepository) {
     this.heroesService = heroesService;
