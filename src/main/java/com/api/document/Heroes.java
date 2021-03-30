@@ -7,9 +7,11 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @DynamoDBTable(tableName ="Heroes_Api_Table")
 public class Heroes {
 
@@ -25,12 +27,5 @@ public class Heroes {
 
   @DynamoDBAttribute (attributeName = "films")
   private int films;
-
-  public Heroes(String id, String name, String universe, int films) {
-    this.id = id;
-    this.name = name;
-    this.universe = universe;
-    this.films = films;
-  }
 
 }
