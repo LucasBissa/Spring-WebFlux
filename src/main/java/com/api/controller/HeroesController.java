@@ -1,16 +1,23 @@
 package com.api.controller;
 
+import static com.api.constants.HeroesConstant.HEROES_ENDPOINT_LOCAL;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.api.document.Heroes;
-import com.api.repository.HeroesRepository;
 import com.api.service.HeroesService;
 
 import lombok.extern.slf4j.Slf4j;
-
-import static com.api.constants.HeroesConstant.HEROES_ENDPOINT_LOCAL;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -18,16 +25,12 @@ import reactor.core.publisher.Mono;
 @RequestMapping(HEROES_ENDPOINT_LOCAL)
 @Slf4j
 public class HeroesController {
-  HeroesService heroesService;
-  HeroesRepository heroesRepository;
+	
+  @Autowired	
+  private HeroesService heroesService;
 
 //  private static final org.slf4j.Logger log =
 //    org.slf4j.LoggerFactory.getLogger(HeroesController.class);
-
-  public HeroesController(HeroesService heroesService, HeroesRepository heroesRepository) {
-    this.heroesService = heroesService;
-    this.heroesRepository = heroesRepository;
-  }
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
