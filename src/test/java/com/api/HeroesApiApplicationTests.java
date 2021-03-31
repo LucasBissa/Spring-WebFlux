@@ -36,7 +36,7 @@ public class HeroesApiApplicationTests {
   @Test
   public void getOneHeroeById(){
 
-    webTestClient.get().uri(HEROES_ENDPOINT_LOCAL.concat("/{id}"),"10")
+    webTestClient.get().uri(HEROES_ENDPOINT_LOCAL.concat("/{id}"),"2")
       .exchange()
       .expectStatus().isOk()
       .expectBody();
@@ -44,7 +44,7 @@ public class HeroesApiApplicationTests {
 
   @Test
   public void getOneHeronotFound(){
-    webTestClient.get().uri(HEROES_ENDPOINT_LOCAL.concat("/{id}"),"10")
+    webTestClient.get().uri(HEROES_ENDPOINT_LOCAL.concat("/{id}"),"0")
       .exchange()
       .expectStatus().isNotFound();
   }
