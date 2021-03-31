@@ -30,13 +30,12 @@ public class HeroesTable {
 
     try {
       System.out.println("Criando tabela, aguarde...");
+      
       Table table = dynamoDB.createTable(tableName,
-        Arrays.asList(new KeySchemaElement("id", KeyType.HASH)
-        ),
-        Arrays.asList(new AttributeDefinition("id", ScalarAttributeType.S)
-
-        ),
+        Arrays.asList(new KeySchemaElement("id", KeyType.HASH)),
+        Arrays.asList(new AttributeDefinition("id", ScalarAttributeType.S)),
         new ProvisionedThroughput(5L, 5L));
+      
       table.waitForActive();
       System.out.println("Successo " + table.getDescription().getTableStatus());
 
